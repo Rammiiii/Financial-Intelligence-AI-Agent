@@ -95,9 +95,8 @@ This project requires a **Groq API Key** to run.
 
 # 📸 Demo
 
-![
+<img width="1533" height="688" alt="Screenshot 2026-10-08 005552" src="https://github.com/user-attachments/assets/1d22af44-ada1-4b9e-8718-7df854ab1154" />
 
-](<Screenshot 2026-10-08 005552-1.png>)
 
 ---
 
