@@ -1,0 +1,7 @@
+.env
+venv/
+__pycache__/
+temp_uploads/
+data/
+test_reports/
+real_reports/
