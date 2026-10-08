@@ -102,15 +102,13 @@ This project requires a **Groq API Key** to run.
 
 # 📈 Results
 
-![
+<img width="1527" height="695" alt="Screenshot 2026-10-08 010818" src="https://github.com/user-attachments/assets/7775c65f-42e8-42fa-ad3c-f2205ccd6cad" />
 
-](<Screenshot 2026-10-08 010908-1.png>) ![
+<img width="1522" height="682" alt="Screenshot 2026-10-08 010834" src="https://github.com/user-attachments/assets/f325618b-ca05-4048-a774-ed83906feda4" />
 
-](<Screenshot 2026-10-08 010818-1.png>) ![
+<img width="1523" height="683" alt="Screenshot 2026-10-08 010858" src="https://github.com/user-attachments/assets/9fdfbe42-3493-4a11-85e7-b9f4ba88b125" />
 
-](<Screenshot 2026-10-08 010834-1.png>) ![
-
-](<Screenshot 2026-10-08 010858-1.png>)
+<img width="1532" height="692" alt="Screenshot 2026-10-08 010908" src="https://github.com/user-attachments/assets/95f0d656-9416-43e2-bd15-090cf86b375c" />
 
 ---
 
