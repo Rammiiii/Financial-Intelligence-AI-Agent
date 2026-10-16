@@ -15,7 +15,6 @@ from langchain_community.document_loaders import (
 from langchain_core.documents import Document
 from langchain_core.messages import HumanMessage, SystemMessage
 
-# 1. Load Environment Variables
 env_path = Path(__file__).resolve().parent / ".env"
 load_dotenv(dotenv_path=env_path, override=True)
 
@@ -24,20 +23,17 @@ api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     raise ValueError(f"GROQ_API_KEY is missing. Please check your .env file at {env_path}")
 
-# 2. Initialize Embeddings on CPU
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-small-en-v1.5",
     model_kwargs={'device': 'cpu'}
 )
 
-# 3. Load existing FAISS Vector Index or create fallback
 INDEX_PATH = "data/financial_faiss_index"
 if os.path.exists(INDEX_PATH):
     vectorstore = FAISS.load_local(INDEX_PATH, embeddings, allow_dangerous_deserialization=True)
 else:
     vectorstore = FAISS.from_documents([Document(page_content="Initial Financial Index")], embeddings)
 
-# 4. Dynamic File Loader for Multiple Formats (PDF, CSV, TXT, DOCX, XLSX)
 def add_file_to_vectorstore(file_path: str, file_type: str):
     """Dynamically process and add uploaded financial documents to the FAISS Vector Index."""
     docs = []
@@ -72,13 +68,11 @@ def add_file_to_vectorstore(file_path: str, file_type: str):
     
     vectorstore.add_documents(splits)
 
-# 5. Direct Vector Retrieval Function
 def retrieve_financial_docs(query: str) -> str:
     retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
     docs = retriever.invoke(query)
     return "\n\n".join([d.page_content for d in docs])
 
-# 6. Initialize Groq with Qwen 3.8 Model
 llm = ChatGroq(
     temperature=0, 
     model_name="qwen/qwen3.8-27b",
@@ -90,12 +84,9 @@ SYSTEM_PROMPT = SystemMessage(content=(
     "and provide a detailed, well-structured financial analysis with all exact numbers and metrics."
 ))
 
-# 7. Main Execution Function
 def analyze_finance(query: str) -> str:
-    # 1. Fetch relevant financial chunks from vector database
     context = retrieve_financial_docs(query)
     
-    # 2. Construct direct prompt to ensure full synthesis without raw tool tags
     messages = [
         SYSTEM_PROMPT,
         HumanMessage(content=(
