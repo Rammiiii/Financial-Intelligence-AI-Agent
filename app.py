@@ -7,7 +7,6 @@ st.set_page_config(page_title="Financial Intelligence AI Agent", page_icon="📈
 st.title("📈 Financial Intelligence AI Agent")
 st.write("Autonomous RAG agent for analyzing financial filings, earnings transcripts, and custom documents using Llama-3.3 and LangChain.")
 
-# Sidebar for dynamic file uploads
 with st.sidebar:
     st.header("📂 Upload Financial Documents")
     uploaded_file = st.file_uploader(
@@ -31,7 +30,6 @@ with st.sidebar:
             except Exception as e:
                 st.error(f"Error indexing file: {e}")
 
-# Query section
 user_query = st.text_area(
     "Enter your financial query or analysis request:",
     placeholder="e.g., What are the primary revenue drivers, CapEx figures, and key risk factors mentioned in the uploaded file?",
